@@ -24,3 +24,6 @@ class Phonebook(models.Model):
                                                                  ('Enter a valid 6 digit zip code'), 'invalid')
         ])
     notes = models.TextField("Notes and Comments", blank=True)
+
+    def get_name(self):
+        return self.first_name+" "+self.last_name
