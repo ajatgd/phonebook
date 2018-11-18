@@ -19,7 +19,7 @@ from rest_framework.response import Response
 class PhonebookCreateAPIView(CreateAPIView):
     queryset = Phonebook.objects.all()
     serializer_class = PhonebookSerializer
-    #permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated]
 
 
 
@@ -31,25 +31,24 @@ class PhonebookDetailAPIView(RetrieveAPIView):
 class PhonebookUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Phonebook.objects.all()
     serializer_class = PhonebookSerializer
-    #permission_classes=[IsAuthenticatedOrReadOnly]
+    permission_classes=[IsAuthenticatedOrReadOnly]
 
 class PhonebookDeleteAPIView(DestroyAPIView):
     queryset = Phonebook.objects.all()
     serializer_class = PhonebookSerializer
-    #permission_classes=[IsAuthenticated]
+    permission_classes=[IsAuthenticated]
 
 class PhonebookListAPIView(ListAPIView):
     serializer_class = PhonebookSerializer
     template_name = 'base.html'
     pagination_class = PhonebookPageNumberPagination
-    #permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
     renderer_classes = (JSONRenderer, )
 
     def get_queryset(self, *args, **kwargs):
         queryset = Phonebook.objects.all()
         query=self.request.GET.get('q')
         if query:
-            print ("in")
             queryset = Phonebook.objects.filter(Q(first_name__icontains=query)|
                                                 Q(last_name__icontains=query)|
                                                 Q(email__icontains=query)

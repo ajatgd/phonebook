@@ -8,6 +8,8 @@ from rest_framework import status
 from django.test import TestCase, Client
 from django.urls import reverse
 from contacts.api.serializers import PhonebookSerializer
+from rest_framework.test import force_authenticate
+from django.contrib.auth.models import User
 
 client = Client()
 
@@ -34,6 +36,7 @@ class GetAllPhonebookTest(TestCase):
             notes="any notes")
 
     def test_get_valid_single_phonebook(self):
+
         response = client.get(
             reverse('detail', kwargs={'pk': self.phonebook1.pk}))
         phonebook = Phonebook.objects.get(pk=self.phonebook1.pk)

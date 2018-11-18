@@ -72,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'phonebook.wsgi.application'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
