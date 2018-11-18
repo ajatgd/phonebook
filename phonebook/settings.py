@@ -25,7 +25,7 @@ SECRET_KEY = 'o1ypvh8_a1j5#le!_^fieyq58bnhz6zjkqluma!7jpdx*w-%xh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['phonebookapp1.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['contactsapp1.herokuapp.com','127.0.0.1']
 
 
 # Application definition
